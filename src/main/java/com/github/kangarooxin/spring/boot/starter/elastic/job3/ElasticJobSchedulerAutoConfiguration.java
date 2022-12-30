@@ -13,21 +13,16 @@ import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.statistics.J
 import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.statistics.ServerStatisticsAPIImpl;
 import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.statistics.ShardingStatisticsAPIImpl;
 import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperRegistryCenter;
-import org.apache.shardingsphere.elasticjob.tracing.api.TracingConfiguration;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
-import javax.sql.DataSource;
 
 /**
  * @author kangaroo_xin
@@ -36,15 +31,13 @@ import javax.sql.DataSource;
 @EnableConfigurationProperties({ElasticJobSchedulerProperties.class})
 @Import({ElasticJobSchedulerAspect.class})
 @ConditionalOnProperty(prefix = Constants.ELASTIC_JOB_PREFIX, name = "enabled", matchIfMissing = true)
-public class ElasticJobSchedulerAutoConfiguration implements ApplicationContextAware {
+public class ElasticJobSchedulerAutoConfiguration {
 
     @Autowired
     private ElasticJobSchedulerProperties properties;
 
     @Autowired
     private ZookeeperRegistryCenter elasticJobRegCenter;
-
-    private ApplicationContext applicationContext;
 
     @PostConstruct
     public void init() {
@@ -61,20 +54,6 @@ public class ElasticJobSchedulerAutoConfiguration implements ApplicationContextA
     @ConditionalOnMissingBean
     public ElasticJobService elasticJobService() {
         return new ElasticJobServiceImpl(elasticJobRegCenter, properties, jobConfigurationAPI(), jobOperateAPI(), jobStatisticsAPI());
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = Constants.ELASTIC_JOB_TRACING_PREFIX, name = "type", havingValue = "RDB")
-    public TracingConfiguration<DataSource> tracingRDbConfiguration() {
-        DataSource dataSource;
-        String beanName = properties.getTracing().getDataSourceBeanName();
-        if (StringUtils.hasText(beanName)) {
-            dataSource = (DataSource) applicationContext.getBean(beanName);
-        } else {
-            dataSource = applicationContext.getBean(DataSource.class);
-        }
-        return new TracingConfiguration<>("RDB", dataSource);
     }
 
     @Bean
@@ -111,10 +90,5 @@ public class ElasticJobSchedulerAutoConfiguration implements ApplicationContextA
     @ConditionalOnMissingBean
     public ShardingStatisticsAPI shardingStatisticsAPI() {
         return new ShardingStatisticsAPIImpl(elasticJobRegCenter);
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
     }
 }
