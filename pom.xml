@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.kangarooxin</groupId>
-    <artifactId>elastic-job3-spring-boot-starter</artifactId>
+    <artifactId>spring-boot-starter-elastic-job3-wrapper</artifactId>
     <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>elastic-job3-spring-boot-starter</name>
@@ -165,18 +165,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
