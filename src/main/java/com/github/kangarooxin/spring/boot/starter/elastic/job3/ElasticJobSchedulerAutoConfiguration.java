@@ -12,8 +12,10 @@ import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.settings.Job
 import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.statistics.JobStatisticsAPIImpl;
 import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.statistics.ServerStatisticsAPIImpl;
 import org.apache.shardingsphere.elasticjob.lite.lifecycle.internal.statistics.ShardingStatisticsAPIImpl;
+import org.apache.shardingsphere.elasticjob.lite.spring.boot.job.ElasticJobLiteAutoConfiguration;
 import org.apache.shardingsphere.elasticjob.reg.zookeeper.ZookeeperRegistryCenter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -28,6 +30,7 @@ import javax.annotation.PostConstruct;
  * @author kangaroo_xin
  */
 @Configuration
+@AutoConfigureAfter({ElasticJobLiteAutoConfiguration.class})
 @EnableConfigurationProperties({ElasticJobSchedulerProperties.class})
 @Import({ElasticJobSchedulerAspect.class})
 @ConditionalOnProperty(prefix = Constants.ELASTIC_JOB_PREFIX, name = "enabled", matchIfMissing = true)
