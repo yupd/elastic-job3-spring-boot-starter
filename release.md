@@ -1,7 +1,6 @@
 ## deploy to maven center
 ```
-mvn clean
-mvn deploy -Prelease
+mvn clean deploy -DskipTests=true -P release
 ```
 
 ## find in repository
