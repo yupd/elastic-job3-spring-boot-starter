@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.kangarooxin</groupId>
+    <groupId>io.github.yupd</groupId>
     <artifactId>spring-boot-starter-elastic-job3-wrapper</artifactId>
     <version>1.0.3</version>
     <packaging>jar</packaging>
@@ -12,33 +12,6 @@
     <name>spring-boot-starter-elastic-job3-wrapper</name>
     <description>spring boot starter for elasticjob wrapper</description>
     <url>https://github.com/yupd/elastic-job3-spring-boot-starter</url>
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    
-    <issueManagement>
-        <system>github</system>
-        <url>https://github.com/yupd/elastic-job3-spring-boot-starter/issues</url>
-    </issueManagement>
-    
-    <scm>
-        <connection>scm:git:https://github.com/yupd/elastic-job3-spring-boot-starter.git</connection>
-        <developerConnection>scm:git:https://github.com/yupd/elastic-job3-spring-boot-starter.git</developerConnection>
-        <url>https://github.com/yupd/elastic-job3-spring-boot-starter</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>yupd</name>
-            <email>yupengdahappy@sina.com</email>
-            <url>https://github.com/yupd</url>
-        </developer>
-    </developers>
 
     <properties>
         <java.version>1.8</java.version>
@@ -213,6 +186,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <developers>
+        <developer>
+            <name>yupd</name>
+            <email>yupengdahappy@sina.com</email>
+            <url>https://github.com/yupd</url>
+        </developer>
+    </developers>
     <issueManagement>
         <system>Github Issue</system>
         <url>https://github.com/yupd/elastic-job3-spring-boot-starter/issues</url>
