@@ -8,16 +8,42 @@
     <artifactId>spring-boot-starter-elastic-job3-wrapper</artifactId>
     <version>1.0.3</version>
     <packaging>jar</packaging>
-    <name>elastic-job3-spring-boot-starter</name>
-    <description>spring boot starter for elastic-job3</description>
-    <url>https://github.com/kangarooxin/elastic-job3-spring-boot-starter</url>
+
+    <name>spring-boot-starter-elastic-job3-wrapper</name>
+    <description>spring boot starter for elasticjob wrapper</description>
+    <url>https://github.com/yupd/elastic-job3-spring-boot-starter</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/yupd/elastic-job3-spring-boot-starter/issues</url>
+    </issueManagement>
+    
+    <scm>
+        <connection>scm:git:https://github.com/yupd/elastic-job3-spring-boot-starter.git</connection>
+        <developerConnection>scm:git:https://github.com/yupd/elastic-job3-spring-boot-starter.git</developerConnection>
+        <url>https://github.com/yupd/elastic-job3-spring-boot-starter</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>yupd</name>
+            <email>yupengdahappy@sina.com</email>
+            <url>https://github.com/yupd</url>
+        </developer>
+    </developers>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <spring-boot.version>2.7.3</spring-boot.version>
-
         <elasticjob.version>3.0.2</elasticjob.version>
         <curator.version>5.1.0</curator.version>
         <zookeeper.version>3.6.2</zookeeper.version>
@@ -187,21 +213,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    <developers>
-        <developer>
-            <email>33863251@qq.com</email>
-            <name>xin.pang</name>
-            <url>https://github.com/kangarooxin</url>
-            <id>kangarooxin</id>
-        </developer>
-    </developers>
     <issueManagement>
         <system>Github Issue</system>
-        <url>https://github.com/kangarooxin/elastic-job3-spring-boot-starter/issues</url>
+        <url>https://github.com/yupd/elastic-job3-spring-boot-starter/issues</url>
     </issueManagement>
     <scm>
-        <connection>scm:git@github.com:kangarooxin/elastic-job3-spring-boot-starter.git</connection>
-        <developerConnection>scm:git@github.com:kangarooxin/elastic-job3-spring-boot-starter.git</developerConnection>
-        <url>git@github.com:kangarooxin/elastic-job3-spring-boot-starter.git</url>
+        <connection>scm:git@github.com:yupd/elastic-job3-spring-boot-starter.git</connection>
+        <developerConnection>scm:git@github.com:yupd/elastic-job3-spring-boot-starter.git</developerConnection>
+        <url>https://github.com/yupd/elastic-job3-spring-boot-starter</url>
     </scm>
 </project>
